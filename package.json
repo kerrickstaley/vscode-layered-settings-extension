@@ -1,0 +1,53 @@
+{
+  "name": "layered-settings",
+  "displayName": "Layered Settings",
+  "description": "Merge multiple settings.*.jsonnet files into your VS Code user settings using Jsonnet",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/kerrickstaley/vscode-layered-settings-extension",
+  "version": "0.0.1",
+  "publisher": "kerrickstaley",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "workspace",
+    "ui"
+  ],
+  "icon": "icon.png",
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "layeredSettings.generateDiff",
+        "title": "Layered Settings: Generate Diff"
+      },
+      {
+        "command": "layeredSettings.overwrite",
+        "title": "Layered Settings: Overwrite settings.json"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --sourcemap --main-fields=module,main",
+    "watch": "npm run compile -- --watch",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test src/*.test.ts",
+    "package": "scripts/package.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.2.0"
+  }
+}
