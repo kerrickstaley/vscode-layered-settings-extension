@@ -3,7 +3,9 @@
 >
 > — Mike Myers dba Shrek
 
-A VS Code extension that lets you split your `settings.json` into multiple [Jsonnet](https://jsonnet.org/) files and automatically merges them together.
+A VSCode extension that lets you split your `settings.json` into multiple [Jsonnet](https://jsonnet.org/) files and automatically merges them together.
+
+[Install it from the VSCode extension marketplace.](https://marketplace.visualstudio.com/items?itemName=KerrickStaley.layered-settings)
 
 [Look at this VSCode issue for background on what problem this tries to solve.](https://github.com/microsoft/vscode/issues/15909)
 
