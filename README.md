@@ -22,6 +22,14 @@ go install github.com/google/go-jsonnet/cmd/jsonnet@latest
 
 Optionally, install the [Jsonnet NG extension](https://marketplace.visualstudio.com/items?itemName=Sebbia.jsonnetng) to get syntax highlighting.
 
+## Quickstart
+1. Install the extension and the prerequisites above. Make sure you're not working in a remote VSCode session.
+2. Run "Preferences: Open User Settings (JSON)" from the command palette.
+3. In the settings.json file that opens, run "File: Save As..." from the command palette.
+4. Name the file `settings.original.jsonnet` and save.
+
+After these steps, any changes you make to `settings.original.jsonnet` will be merged into `settings.json`. If you manually edit `settings.json` to be different from `settings.original.jsonnet`, those manual changes will be preserved; see below for merge semantics. You can check `settings.original.json` into version control.
+
 ## Use-cases
 ### Sharing settings between machines
 1. Run "Preferences: Open User Settings (JSON)" in the command palette; this will open `settings.json`.
