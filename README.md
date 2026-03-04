@@ -20,6 +20,8 @@ brew install jsonnet
 go install github.com/google/go-jsonnet/cmd/jsonnet@latest
 ```
 
+Optionally, install the [Jsonnet NG extension](https://marketplace.visualstudio.com/items?itemName=Sebbia.jsonnetng) to get syntax highlighting.
+
 ## Use-cases
 ### Sharing settings between machines
 1. Run "Preferences: Open User Settings (JSON)" in the command palette; this will open `settings.json`.
