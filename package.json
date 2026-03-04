@@ -4,7 +4,7 @@
   "description": "Merge multiple settings.*.jsonnet files into your VS Code user settings using Jsonnet",
   "license": "Apache-2.0",
   "repository": "https://github.com/kerrickstaley/vscode-layered-settings-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "KerrickStaley",
   "engines": {
     "vscode": "^1.85.0"
