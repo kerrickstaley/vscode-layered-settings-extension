@@ -117,3 +117,10 @@ npm run test      # run tests
 npm run watch     # rebuild on change
 npm run package   # produce .vsix
 ```
+
+## Publishing
+If your name is Kerrick, you can publish this extension by first running:
+```
+npm run package -- --release
+```
+and then going [here](https://marketplace.visualstudio.com/manage/publishers/KerrickStaley), clicking ⋮ on the extension, and choosing "Update".
