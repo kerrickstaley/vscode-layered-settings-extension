@@ -255,6 +255,25 @@ describe('doOverwrite', () => {
         assert.ok(output.lines.some(l => l.includes('[overwrite] Backed up')));
     });
 
+    it('overwrites read-only settings_generated.json from a prior merge', async () => {
+        const dir = await makeTmpDir();
+        tmpDirs.push(dir);
+        await nodeFs.writeFile(path.join(dir, 'settings.a.jsonnet'), '{ a: 1 }');
+        const generatedPath = path.join(dir, 'settings_generated.json');
+        await nodeFs.writeFile(generatedPath, '{ "old": true }\n', { mode: 0o444 });
+
+        patchMethod(cp as any, 'execFile', (_file: any, _args: any, _opts: any, cb: any) => {
+            cb(null, '{"a":1}', '');
+            return {} as any;
+        });
+
+        const output = makeOutput();
+        await doOverwrite(dir, output, vscodeApi);
+
+        assert.deepEqual(state.errors, []);
+        assert.equal(await nodeFs.readFile(generatedPath, 'utf8'), '{\n    "a": 1\n}\n');
+    });
+
     it('skips backup gracefully when settings.json does not exist', async () => {
         const dir = await makeTmpDir();
         tmpDirs.push(dir);

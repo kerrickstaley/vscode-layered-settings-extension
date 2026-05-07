@@ -94,7 +94,9 @@ export async function doOverwrite(settingsDir: string, output: OutputLike, vscod
         }
         const generated = await evalFragments(settingsDir, fragments);
         const content = JSON.stringify(generated, null, 4) + '\n';
-        await fs.writeFile(path.join(settingsDir, 'settings_generated.json'), content);
+        const generatedPath = path.join(settingsDir, 'settings_generated.json');
+        await fs.rm(generatedPath, { force: true });
+        await fs.writeFile(generatedPath, content, { mode: 0o444 });
 
         const settingsPath = path.join(settingsDir, 'settings.json');
         const now = new Date();
