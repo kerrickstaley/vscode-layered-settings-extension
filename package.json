@@ -1,7 +1,7 @@
 {
   "name": "layered-settings",
   "displayName": "Layered Settings",
-  "description": "Merge multiple settings.*.jsonnet files into your VS Code user settings using Jsonnet",
+  "description": "Manage your VS Code settings using layered Jsonnet files",
   "license": "Apache-2.0",
   "repository": "https://github.com/kerrickstaley/vscode-layered-settings-extension",
   "version": "0.0.3",
